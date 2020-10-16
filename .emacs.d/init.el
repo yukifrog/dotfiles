@@ -51,3 +51,5 @@
 ;;flyspell
 ;;rinari
 ;;migemo
+
+(straight-use-package 'yaml-mode)
