@@ -14,17 +14,66 @@
 
 (straight-use-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+(define-key company-search-map (kbd "C-n") 'company-select-next)
+(define-key company-search-map (kbd "C-p") 'company-select-previous)
+;;  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+(setq company-minimum-prefix-length 2)
+(setq company-search-filtering t)
+(setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+(setq completion-ignore-case t)
+(setq company-dabbrev-downcase nil)
+(setq company-idle-delay 0)
 
-(straight-use-package 'flymake-ruby)
+;;whitespace-mode
+;;https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
+
+
+
+
+(straight-use-package 'flycheck)
+(global-flycheck-mode)
+;;rubocop flycheck lint
+;;gem install rubocop ruby-lint pry pry-dock reek
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'ruby-rubocop)
+             (flycheck-mode 1)))
+;; 自動起動
+(setq flycheck-check-syntax-automatically
+  '(save idle-change mode-enabled))
+    
+;; コード変更後、3秒後にチェックする
+(setq flycheck-idle-change-delay 3)
+;;(setq flycheck-check-syntax-automatically '(idle-change mode-enabled new-line save))
+;;flyspell?
+;https://www.m3tech.blog/entry/emacs-web-service
 ;flymake
+;;(straight-use-package 'flymake-ruby)
+;;(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+;;https://lorefnon.me/2014/02/02/configuring-emacs-for-rails.html
+;;projectile
+
+
+
+
+
+
+
+
+
 (straight-use-package 'robe)
 ;; M-x inf-ruby
 ;; M-x robe-start
+;; 自動で出来るかな
+
 
 
 (setq ruby-deep-indent-paren nil)
 
-(global-set-key (kbd "C-c r r") 'inf-ruby)
+;;(global-set-key (kbd "C-c r r") 'inf-ruby)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 (eval-after-load 'company
@@ -44,12 +93,10 @@
 (straight-use-package 'ruby-electric)
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
-(straight-use-package 'flycheck)
-(straight-use-package 'robe)
+
 
 ;;rbenv
 ;;ruby end
-;;rubocop flycheck lint
 ;;projectile?
 ;;smart-newline.el
 ;;dump-jump
@@ -60,7 +107,12 @@
 ;;magit
 (straight-use-package 'forge)
 (straight-use-package 'magit)
-;;yasnippet
+
+(straight-use-package 'yasnippet)
+(yas-global-mode t) 
+(straight-use-package 'yasnippet-snippets)
+
+
 ;;git-company
 ;;neotree
 
@@ -77,6 +129,8 @@
 
 ;https://emacs-jp.github.io/packages/anzu
 (straight-use-package 'anzu) 
+(straight-use-package 'migemo)
+
 (global-anzu-mode t)
 (setq anzu-search-threshold 1000)
 ;; migemoを利用している場合
@@ -93,3 +147,12 @@
 (setq skk-show-mode-style 'tooltip)
 ;C-h v 変数の中身を確認
 ;backspase C-h
+
+;;which-key
+;;http://emacs.rubikitch.com/which-key/
+(straight-use-package 'which-key)
+;;; 3つの表示方法どれか1つ選ぶ
+(which-key-setup-side-window-bottom)    ;ミニバッファ
+;; (which-key-setup-side-window-right)     ;右端
+;; (which-key-setup-side-window-right-bottom) ;両方使う
+(which-key-mode 1)
