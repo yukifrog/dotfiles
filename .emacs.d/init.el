@@ -92,8 +92,10 @@
 
 ;;https://github.com/DarthFennec/highlight-indent-guides
 (straight-use-package 'highlight-indent-guides)
-(add-hook 'emacs-lisp-mode-hook 'highlight-indent-guides-mode)
-(add-hook 'ruby-mode-hook 'highlight-indent-guides-mode)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-auto-enabled t)
+(setq highlight-indent-guides-responsive t)
+(setq highlight-indent-guides-method 'character)
 
 
 (straight-use-package 'robe)
