@@ -14,11 +14,12 @@
 
 (straight-use-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-(define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
-(define-key company-search-map (kbd "C-n") 'company-select-next)
-(define-key company-search-map (kbd "C-p") 'company-select-previous)
+;(define-key company-active-map (kbd "C-p") 'company-select-previous)
+;(define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+;(define-key company-search-map (kbd "C-n") 'company-select-next)
+;(define-key company-search-map (kbd "C-p") 'company-select-previous)
 ;;  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
 (setq company-minimum-prefix-length 2)
 (setq company-search-filtering t)
@@ -62,6 +63,11 @@
 
 
 
+;;hl-line-mode
+;;https://www.emacswiki.org/emacs/HighlightCurrentLine
+(global-hl-line-mode t)
+
+
 
 
 (straight-use-package 'robe)
@@ -79,13 +85,21 @@
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
+;; helm https://tuhdo.github.io/helm-intro.html
 (straight-use-package 'helm)
+;;helm helm-config?
 ;(straight-use-package 'consel)
 (straight-use-package 'ivy)
 (straight-use-package 'swiper)
 (global-set-key (kbd "M-x") #'helm-M-x)
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+
 (helm-mode 1)
 (global-set-key (kbd "C-s") 'swiper)
 
@@ -94,6 +108,10 @@
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
 
+
+;;https://github.com/TeMPOraL/nyan-mode
+(straight-use-package 'nyan-mode)
+(nyan-mode t)
 
 ;;rbenv
 ;;ruby end
