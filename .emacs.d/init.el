@@ -13,20 +13,21 @@
 
 
 (straight-use-package 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(global-company-mode)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-;(define-key company-active-map (kbd "C-p") 'company-select-previous)
-;(define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
-;(define-key company-search-map (kbd "C-n") 'company-select-next)
-;(define-key company-search-map (kbd "C-p") 'company-select-previous)
-;;  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-(setq company-minimum-prefix-length 2)
-(setq company-search-filtering t)
-(setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
-(setq completion-ignore-case t)
-(setq company-dabbrev-downcase nil)
-(setq company-idle-delay 0)
+(add-hook 'after-init-hook
+	  (lambda()
+	    (global-company-mode)
+	    (define-key company-active-map (kbd "C-n") 'company-select-next)
+	    (define-key company-active-map (kbd "C-p") 'company-select-previous)
+	    (define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+	    (define-key company-search-map (kbd "C-n") 'company-select-next)
+	    (define-key company-search-map (kbd "C-p") 'company-select-previous)
+	    (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+	    (setq company-minimum-prefix-length 2)
+	    (setq company-search-filtering t)
+	    (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+	    (setq completion-ignore-case t)
+	    (setq company-dabbrev-downcase nil)
+	    (setq company-idle-delay 0)))
 
 ;;whitespace-mode
 ;;https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
@@ -91,11 +92,11 @@
 (volatile-highlights-mode t)
 
 ;;https://github.com/DarthFennec/highlight-indent-guides
-(straight-use-package 'highlight-indent-guides)
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-auto-enabled t)
-(setq highlight-indent-guides-responsive t)
-(setq highlight-indent-guides-method 'character)
+;(straight-use-package 'highlight-indent-guides)
+;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;(setq highlight-indent-guides-auto-enabled t)
+;(setq highlight-indent-guides-responsive t)
+;(setq highlight-indent-guides-method 'character)
 
 
 (straight-use-package 'robe)
