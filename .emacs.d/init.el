@@ -11,11 +11,12 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
 (straight-use-package 'company)
+(straight-use-package 'company-statistics)
 (add-hook 'after-init-hook
 	  (lambda()
 	    (global-company-mode)
+	    (company-statistics-mode)
 	    (define-key company-active-map (kbd "C-n") 'company-select-next)
 	    (define-key company-active-map (kbd "C-p") 'company-select-previous)
 	    (define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
@@ -27,7 +28,7 @@
 	    (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
 	    (setq completion-ignore-case t)
 	    (setq company-dabbrev-downcase nil)
-	    (setq company-idle-delay 0)))
+	    (setq company-idle-delay 0.1)))
 
 ;;whitespace-mode
 ;;https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
@@ -138,11 +139,16 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c t") 'helm-recentf)
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
 
 (helm-mode 1)
+
+(recentf-mode 1)
+
 (global-set-key (kbd "C-s") 'swiper)
+
 
 (straight-use-package 'ruby-block)
 (require 'ruby-block) ;; <- なぜか必要
@@ -158,9 +164,23 @@
 (nyan-mode t)
 
 ;;rbenv
+;;(global-rbenv-mode nil)
+
+
 ;;ruby end <- ruby-electricとかぶってる
 ;;projectile?
-
+;;yard-mode?
+;;inf-ruby
+;;rubocop
+;;robe
+;;bundler
+;;rake
+;;rvm
+;;chruby
+;;rspec-mode
+;;minitest
+;;projectile-rails
+;;inflections
 
 ;;smart-newline.el https://github.com/ainame/smart-newline.el
 (straight-use-package 'smart-newline)
@@ -202,11 +222,24 @@
 
 
 ;show-paren-mode
-(setq show-paren-delay 0)
+(setq show-paren-delay 0) ; default 0.125
+(setq show-paren-style 'mixed) ; default 'parenthesis others 'expression 'mixed
+(setq show-paren-when-point-inside-paren t) ; default nil
+(setq show-paren-when-point-in-periphery t) ; default nil
+(set-face-background 'show-paren-match "#def")
+(set-face-foreground 'show-paren-match "#210")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 (show-paren-mode 1)
+;; alt smartparens.el
+;; https://github.com/Fuco1/smartparens
+
+;;https://github.com/Fuco1/smartparens
 
 ;括弧の自動挿入
-(electric-pair-mode 1)
+;(electric-pair-mode 1)
+
+
+;recentf
 
 (tool-bar-mode -1)
 
