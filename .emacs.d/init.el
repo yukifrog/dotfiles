@@ -23,9 +23,9 @@
 	    (define-key company-search-map (kbd "C-n") 'company-select-next)
 	    (define-key company-search-map (kbd "C-p") 'company-select-previous)
 	    (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-	    (setq company-minimum-prefix-length 2)
+	    (setq company-minimum-prefix-length 1)
 	    (setq company-search-filtering t)
-	    (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+	    (setq company-selection-wrap-around nil) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
 	    (setq completion-ignore-case t)
 	    (setq company-dabbrev-downcase nil)
 	    (setq company-idle-delay 0.1)))
@@ -89,8 +89,8 @@
 (add-hook 'after-init-hook 'beacon-mode)
 
 ;;https://github.com/k-talo/volatile-highlights.el
-(straight-use-package 'volatile-highlights)
-(volatile-highlights-mode t)
+;(straight-use-package 'volatile-highlights)
+;(volatile-highlights-mode t)
 
 ;;https://github.com/DarthFennec/highlight-indent-guides
 ;(straight-use-package 'highlight-indent-guides)
@@ -190,7 +190,7 @@
 ;;dump-jump
 ;;flyspell
 ;;rinari
-;tag?
+;tag?ctag?gtac?etag?
 ;;migemo
 ;;magit
 (straight-use-package 'forge)
