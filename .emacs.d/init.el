@@ -1,3 +1,4 @@
+;;https://github.com/raxod502/straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -11,6 +12,33 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+
+
+;;https://github.com/emacs-lsp/lsp-mode
+;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+(setq lsp-keymap-prefix "C-l")
+
+(straight-use-package 'lsp-mode)
+
+
+;;https://emacs-lsp.github.io/lsp-ui/
+;(straight-use-package 'lsp-ui)
+;lsp-ui-doc
+
+(straight-use-package 'helm-lsp)
+
+;(straight-use-package 'lsp-treemacs)
+(straight-use-package 'dap-mode)
+;(straight-use-package 'dap-ruby)
+
+;(eval-after-load 'company
+;  '(push 'company-lsp company-backends))
+
+
+(add-hook 'ruby-mode-hook #'lsp )
+
+
+;;http://company-mode.github.io/
 (straight-use-package 'company)
 (straight-use-package 'company-statistics)
 (add-hook 'after-init-hook
@@ -30,6 +58,10 @@
 	    (setq company-dabbrev-downcase nil)
 	    (setq company-idle-delay 0.1)))
 
+;;company-box
+;;company-quickhelp
+
+
 ;;whitespace-mode
 ;;https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
 (require 'whitespace)
@@ -46,9 +78,9 @@
 
 
 
-
+;;https://github.com/flycheck/flycheck
 (straight-use-package 'flycheck)
-(global-flycheck-mode)
+;(global-flycheck-mode)
 ;;rubocop flycheck lint
 ;;gem install rubocop ruby-lint pry pry-dock reek
 (add-hook 'ruby-mode-hook
@@ -84,7 +116,7 @@
 ;;https://github.com/mahito1594/dotemacs
 (straight-use-package 'beacon)
 (setq beacon-blink-duration 1)
-(setq beacon-color "white")
+(setq beacon-color "black")
 (setq beacon-dont-blink-commands nil)
 (add-hook 'after-init-hook 'beacon-mode)
 
@@ -101,6 +133,7 @@
 
 
 (straight-use-package 'robe)
+(straight-use-package 'helm-robe)
 ;; M-x inf-ruby
 ;; M-x robe-start
 ;; 自動で出来るかな
@@ -126,6 +159,7 @@
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
 
+;;avy
 
 ;;lsp-mode?
 ;;https://github.com/emacs-lsp/lsp-mode
@@ -193,6 +227,7 @@
 ;tag?ctag?gtac?etag?
 ;;migemo
 ;;magit
+;;git-gutter
 (straight-use-package 'forge)
 (straight-use-package 'magit)
 
@@ -210,8 +245,8 @@
 ;;imenu
 (straight-use-package 'imenu-list)
 
-
 ;;minimap
+
 
 
 ;;hide-mode-line
@@ -276,6 +311,18 @@
 (straight-use-package 'rainbow-delimiters)
 ;(rainbow-delimiters-mode-enable)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode-enable)
+
+
+
+
+;; 透明度を変更するコマンド M-x set-alpha
+;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
+;; https://qiita.com/marcy_o/items/ba0d018a03381a964f24
+(defun set-alpha (alpha-num)
+  "set frame parameter 'alpha"
+  (interactive "nAlpha: ")
+  (set-frame-parameter nil 'alpha (cons alpha-num '(90))))
+
 
 (provide 'init)
 ;;; init.el ends here
