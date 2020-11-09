@@ -64,6 +64,7 @@
 
 ;;whitespace-mode
 ;;https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
+;;https://w.atwiki.jp/ntemacs/pages/76.html
 (require 'whitespace)
 ;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
@@ -72,8 +73,11 @@
 (add-hook 'markdown-mode-hook
 	  '(lambda ()
 	     (set (make-local-variable 'whitespace-action) nil)))
-;(global-whitespace-mode 1)
-
+(global-whitespace-mode -1)
+(set-face-attribute 'whitespace-space nil
+                    :background "#232323"
+                    :foreground "GreenYellow"
+                    :weight 'bold)
 
 
 
@@ -91,8 +95,8 @@
 (setq flycheck-check-syntax-automatically
   '(save idle-change mode-enabled))
 
-;; コード変更後、3秒後にチェックする
-(setq flycheck-idle-change-delay 3)
+;; コード変更後、x秒後にチェックする
+(setq flycheck-idle-change-delay 2)
 ;;(setq flycheck-check-syntax-automatically '(idle-change mode-enabled new-line save))
 ;;flyspell?
 ;https://www.m3tech.blog/entry/emacs-web-service
@@ -142,7 +146,6 @@
 
 (setq ruby-deep-indent-paren nil)
 
-;;(global-set-key (kbd "C-c r r") 'inf-ruby)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 (eval-after-load 'company
@@ -151,7 +154,8 @@
 ;; helm https://tuhdo.github.io/helm-intro.html
 (straight-use-package 'helm)
 ;;helm helm-config?
-;(straight-use-package 'consel)
+(straight-use-package 'counsel)
+(counsel-mode 1)
 ;;ivy-rich
 ;; https://qiita.com/Ladicle/items/feb5f9dce9adf89652cf
 
@@ -192,18 +196,9 @@
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
 
-
-;;https://github.com/TeMPOraL/nyan-mode
-(straight-use-package 'nyan-mode)
-(nyan-mode t)
-
 ;;rbenv
 ;;(global-rbenv-mode nil)
-
-
 ;;ruby end <- ruby-electricとかぶってる
-;;projectile?
-;;yard-mode?
 ;;inf-ruby
 ;;rubocop
 ;;robe
@@ -213,14 +208,32 @@
 ;;chruby
 ;;rspec-mode
 ;;minitest
+
+
+
+
+
+;;https://github.com/TeMPOraL/nyan-mode
+(straight-use-package 'nyan-mode)
+(nyan-mode t)
+
+
+
+
+;;projectile?
+;;yard-mode?
 ;;projectile-rails
 ;;inflections
 
 ;;smart-newline.el https://github.com/ainame/smart-newline.el
+;;C-m or RET
+;;改行したときにいんでんとした場所にかーそるがいく
 (straight-use-package 'smart-newline)
 (add-hook 'ruby-mode-hook
 	  (lambda ()
 	    (smart-newline-mode 1)))
+
+
 ;;dump-jump
 ;;flyspell
 ;;rinari
@@ -228,8 +241,18 @@
 ;;migemo
 ;;magit
 ;;git-gutter
-(straight-use-package 'forge)
+
+
+
+
+
 (straight-use-package 'magit)
+(straight-use-package 'forge)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+
+
+
 
 (straight-use-package 'yasnippet)
 (yas-global-mode t)
@@ -322,6 +345,13 @@
   "set frame parameter 'alpha"
   (interactive "nAlpha: ")
   (set-frame-parameter nil 'alpha (cons alpha-num '(90))))
+
+;;http://emacs.rubikitch.com/rebecca-theme/
+(straight-use-package 'rebecca-theme)
+(load-theme 'rebecca t)
+
+
+
 
 
 (provide 'init)
