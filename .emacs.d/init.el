@@ -171,7 +171,11 @@
 
 (straight-use-package 'ivy)
 (straight-use-package 'swiper)
-(global-set-key (kbd "M-x") #'helm-M-x)
+;;amex semex
+(straight-use-package 'amx)
+
+;;(global-set-key (kbd "M-x") #'helm-M-x)
+;;(global-set-key (kbd "M-x") 'counsel-M-x)
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -273,7 +277,7 @@
 
 
 ;;hide-mode-line
-;;amex semex
+
 ;;hydra https://github.com/abo-abo/hydra
 
 (straight-use-package 'yaml-mode)
@@ -353,6 +357,16 @@
 ;;http://emacs.rubikitch.com/rebecca-theme/
 (straight-use-package 'rebecca-theme)
 (load-theme 'rebecca t)
+
+
+
+;;https://www.emacswiki.org/emacs/emacs-w3m
+(straight-use-package 'w3m)
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+;; optional keyboard short-cut
+(global-set-key "\C-xm" 'browse-url-at-point)
+
 
 
 (provide 'init)
