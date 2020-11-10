@@ -323,6 +323,8 @@
   (interactive "nAlpha: ")
   (set-frame-parameter nil 'alpha (cons alpha-num '(90))))
 
+;;http://ergoemacs.org/emacs/emacs_set_backup_into_a_directory.html
+(setq make-backup-files nil)
 
 (provide 'init)
 ;;; init.el ends here
