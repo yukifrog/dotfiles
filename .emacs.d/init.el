@@ -14,18 +14,59 @@
 
 
 
+
+
+
+
+
+
+
+;; counsel swiper ivy
+;; https://github.com/abo-abo/swiper
+(straight-use-package 'counsel)
+(straight-use-package 'ivy)
+(straight-use-package 'swiper)
+
+(setq ivy-use-virtual-buffers t)
+
+;;(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-s") 'swiper)
+(straight-use-package 'lsp-ivy)
+;;ivy-rich
+
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-y") 'counsel-yank-pop)
+(setq counsel-yank-pop-preselect-last 0)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-M-z") 'counsel-fzf)
+(global-set-key (kbd "C-M-r") 'counsel-recentf)
+(global-set-key (kbd "C-x C-b") 'counsel-ibuffer)
+(global-set-key (kbd "C-x b") 'counsel-switch-buffer)
+(global-set-key (kbd "C-M-f") 'counsel-ag)
+(counsel-mode 1)
+
+;;amex semex
+(straight-use-package 'amx)
+(setq amx-backend 'ivy)
+
+
+
+
+
+;; lsp
+
 ;;https://github.com/emacs-lsp/lsp-mode
 ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-(setq lsp-keymap-prefix "C-l")
+;;(setq lsp-keymap-prefix "C-l")
 
 (straight-use-package 'lsp-mode)
 
 
 ;;https://emacs-lsp.github.io/lsp-ui/
-;(straight-use-package 'lsp-ui)
+(straight-use-package 'lsp-ui)
 ;lsp-ui-doc
 
-(straight-use-package 'helm-lsp)
+;;(straight-use-package 'helm-lsp)
 
 ;(straight-use-package 'lsp-treemacs)
 (straight-use-package 'dap-mode)
@@ -136,8 +177,8 @@
 ;(setq highlight-indent-guides-method 'character)
 
 
-(straight-use-package 'robe)
-(straight-use-package 'helm-robe)
+;;(straight-use-package 'robe)
+;;(straight-use-package 'helm-robe)
 ;; M-x inf-ruby
 ;; M-x robe-start
 ;; 自動で出来るかな
@@ -147,16 +188,15 @@
 (setq ruby-deep-indent-paren nil)
 
 
-(add-hook 'ruby-mode-hook 'robe-mode)
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
+;;(add-hook 'ruby-mode-hook 'robe-mode)
+;;(eval-after-load 'company
+;;  '(push 'company-robe company-backends))
 
 ;; helm https://tuhdo.github.io/helm-intro.html
 (straight-use-package 'helm)
+(helm-mode 1)
 ;;helm helm-config?
-(straight-use-package 'counsel)
-(counsel-mode 1)
-;;ivy-rich
+
 ;; https://qiita.com/Ladicle/items/feb5f9dce9adf89652cf
 
 
@@ -169,27 +209,22 @@
 ;;https://github.com/emacs-lsp/lsp-mode
 
 
-(straight-use-package 'ivy)
-(straight-use-package 'swiper)
-;;amex semex
-(straight-use-package 'amx)
 
 ;;(global-set-key (kbd "M-x") #'helm-M-x)
-;;(global-set-key (kbd "M-x") 'counsel-M-x)
-(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c t") 'helm-recentf)
-(setq helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t)
 
-(helm-mode 1)
+;(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;(global-set-key (kbd "C-x b") 'helm-mini)
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;(global-set-key (kbd "C-c t") 'helm-recentf)
+;(setq helm-buffers-fuzzy-matching t
+;      helm-recentf-fuzzy-match    t)
+
+
 
 (recentf-mode 1)
 
-(global-set-key (kbd "C-s") 'swiper)
 
 
 (straight-use-package 'ruby-block)
