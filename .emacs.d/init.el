@@ -60,7 +60,7 @@
 ;;(setq lsp-keymap-prefix "C-l")
 
 (straight-use-package 'lsp-mode)
-
+(straight-use-package 'lsp-ruby)
 
 ;;https://emacs-lsp.github.io/lsp-ui/
 (straight-use-package 'lsp-ui)
@@ -76,7 +76,7 @@
 ;  '(push 'company-lsp company-backends))
 
 
-(add-hook 'ruby-mode-hook #'lsp )
+(add-hook 'ruby-mode-hook 'lsp-ruby-autoloads)
 
 
 ;;http://company-mode.github.io/
