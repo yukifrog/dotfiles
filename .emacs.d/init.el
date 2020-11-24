@@ -60,7 +60,11 @@
 ;;(setq lsp-keymap-prefix "C-l")
 
 (straight-use-package 'lsp-mode)
-(straight-use-package 'lsp-ruby)
+(add-hook 'ruby-mode-hook #'lsp)
+;(straight-use-package 'lsp-ruby)
+;(straight-use-package 'lsp-solargraph)
+;(require 'solargraph)
+;(define-key ruby-mode-map (kbd "M-i") 'solargraph:complete)
 
 ;;https://emacs-lsp.github.io/lsp-ui/
 (straight-use-package 'lsp-ui)
@@ -76,7 +80,7 @@
 ;  '(push 'company-lsp company-backends))
 
 
-(add-hook 'ruby-mode-hook 'lsp-ruby-autoloads)
+;(add-hook 'ruby-mode-hook 'lsp-ruby-autoloads)
 
 
 ;;http://company-mode.github.io/
@@ -97,7 +101,11 @@
 	    (setq company-selection-wrap-around nil) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
 	    (setq completion-ignore-case t)
 	    (setq company-dabbrev-downcase nil)
-	    (setq company-idle-delay 0.1)))
+	    (setq company-idle-delay 0.1)
+	    (add-to-list 'company-backends '(company-capf :with company-dabbrev))
+	    (add-to-list 'company-backends '(company-capf :with company-yasnippet))
+	    )
+	  )
 
 ;;company-box
 ;;company-quickhelp
@@ -128,10 +136,11 @@
 ;(global-flycheck-mode)
 ;;rubocop flycheck lint
 ;;gem install rubocop ruby-lint pry pry-dock reek
-(add-hook 'ruby-mode-hook
-	  '(lambda ()
-	     (setq flycheck-checker 'ruby-rubocop)
-	     (flycheck-mode 1)))
+;(add-hook 'ruby-mode-hook
+;	  '(lambda ()
+;	     (setq flycheck-checker 'ruby-rubocop)
+;	     (flycheck-mode 1)))
+
 ;; 自動起動
 (setq flycheck-check-syntax-automatically
   '(save idle-change mode-enabled))
@@ -184,7 +193,7 @@
 ;; 自動で出来るかな
 
 
-
+;;https://lorefnon.me/2014/02/02/configuring-emacs-for-rails.html
 (setq ruby-deep-indent-paren nil)
 
 
@@ -263,6 +272,7 @@
 ;;yard-mode?
 ;;projectile-rails
 ;;inflections
+(straight-use-package 'projectile)
 
 ;;smart-newline.el https://github.com/ainame/smart-newline.el
 ;;C-m or RET
@@ -402,6 +412,9 @@
 ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
 
+(setq
+ company-frontends
+   '(company-pseudo-tooltip-frontend company-echo-metadata-frontend company-preview-if-just-one-frontend))
 
 
 (provide 'init)
