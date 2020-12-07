@@ -35,7 +35,7 @@
 ;;ivy-rich
 
 (global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-y") 'counsel-yank-pop)
+;(global-set-key (kbd "C-y") 'counsel-yank-pop)
 (setq counsel-yank-pop-preselect-last 0)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-M-z") 'counsel-fzf)
@@ -61,6 +61,7 @@
 
 (straight-use-package 'lsp-mode)
 (add-hook 'ruby-mode-hook #'lsp)
+(setq lsp-solargraph-use-bundler t)
 ;(straight-use-package 'lsp-ruby)
 ;(straight-use-package 'lsp-solargraph)
 ;(require 'solargraph)
@@ -106,6 +107,7 @@
 	    (add-to-list 'company-backends '(company-capf :with company-yasnippet))
 	    )
 	  )
+(add-to-list 'company-backends 'company-keywords)
 
 ;;company-box
 ;;company-quickhelp
@@ -243,6 +245,7 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
+(straight-use-package 'rspec-mode)
 
 ;;rbenv
 ;;(global-rbenv-mode nil)
