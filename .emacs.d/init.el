@@ -157,10 +157,8 @@
 (straight-use-package 'projectile)
 (straight-use-package 'Projectile-rails)
 (projectile-mode +1)
-
-
-
-
+;(projectile-rails-global-mode)
+;なぜか(require 'inf-ruby)がこける
 
 
 
@@ -245,6 +243,7 @@
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
 
+
 ;;rbenv
 ;;(global-rbenv-mode nil)
 ;;ruby end <- ruby-electricとかぶってる
@@ -273,7 +272,7 @@
 ;;yard-mode?
 ;;projectile-rails
 ;;inflections
-(straight-use-package 'projectile)
+
 
 ;;smart-newline.el https://github.com/ainame/smart-newline.el
 ;;C-m or RET
