@@ -80,7 +80,7 @@
 ;  '(push 'company-lsp company-backends))
 
 
-;(add-hook 'ruby-mode-hook 'lsp-ruby-autoloads)
+(add-hook 'ruby-mode-hook #'lsp)
 
 
 ;;http://company-mode.github.io/
@@ -154,8 +154,9 @@
 ;;(straight-use-package 'flymake-ruby)
 ;;(add-hook 'ruby-mode-hook 'flymake-ruby-load)
 ;;https://lorefnon.me/2014/02/02/configuring-emacs-for-rails.html
-;;projectile
-
+(straight-use-package 'projectile)
+(straight-use-package 'Projectile-rails)
+(projectile-mode +1)
 
 
 
