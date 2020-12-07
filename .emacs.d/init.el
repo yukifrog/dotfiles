@@ -52,7 +52,6 @@
 
 
 
-
 ;; lsp
 
 ;;https://github.com/emacs-lsp/lsp-mode
@@ -155,10 +154,10 @@
 ;;(add-hook 'ruby-mode-hook 'flymake-ruby-load)
 ;;https://lorefnon.me/2014/02/02/configuring-emacs-for-rails.html
 (straight-use-package 'projectile)
-(straight-use-package 'Projectile-rails)
 (projectile-mode +1)
-;(projectile-rails-global-mode)
-;なぜか(require 'inf-ruby)がこける
+(straight-use-package 'projectile-rails)
+(projectile-rails-global-mode)
+;(add-hook 'projectile-mode-hook 'projectile-rails-on)
 
 
 
@@ -242,10 +241,8 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (straight-use-package 'pry)
 (straight-use-package 'inf-ruby)
-
-
-;;rbenv
-;;(global-rbenv-mode nil)
+(straight-use-package 'rbenv)
+(global-rbenv-mode)
 ;;ruby end <- ruby-electricとかぶってる
 ;;inf-ruby
 ;;rubocop
