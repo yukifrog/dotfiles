@@ -31,7 +31,6 @@
 
 ;;(global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-s") 'swiper)
-(straight-use-package 'lsp-ivy)
 ;;ivy-rich
 
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -50,37 +49,12 @@
 (setq amx-backend 'ivy)
 
 
-
-
-;; lsp
-
-;;https://github.com/emacs-lsp/lsp-mode
-;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-;;(setq lsp-keymap-prefix "C-l")
-
-(straight-use-package 'lsp-mode)
-(add-hook 'ruby-mode-hook #'lsp)
-(setq lsp-solargraph-use-bundler t)
-;(straight-use-package 'lsp-ruby)
-;(straight-use-package 'lsp-solargraph)
 ;(require 'solargraph)
 ;(define-key ruby-mode-map (kbd "M-i") 'solargraph:complete)
 
-;;https://emacs-lsp.github.io/lsp-ui/
-(straight-use-package 'lsp-ui)
-;lsp-ui-doc
-
-;;(straight-use-package 'helm-lsp)
-
-;(straight-use-package 'lsp-treemacs)
-(straight-use-package 'dap-mode)
-;(straight-use-package 'dap-ruby)
-
-;(eval-after-load 'company
-;  '(push 'company-lsp company-backends))
-
-
-(add-hook 'ruby-mode-hook #'lsp)
+;elgot
+(straight-use-package 'eglot)
+(add-hook 'ruby-mode-hook 'eglot-ensure)
 
 
 ;;http://company-mode.github.io/
@@ -102,11 +76,10 @@
 	    (setq completion-ignore-case t)
 	    (setq company-dabbrev-downcase nil)
 	    (setq company-idle-delay 0.1)
-	    (add-to-list 'company-backends '(company-capf :with company-dabbrev))
-	    (add-to-list 'company-backends '(company-capf :with company-yasnippet))
+	    (add-to-list 'company-backends '(company-robe company-capf company-dabbrev company-yasnippet))
 	    )
 	  )
-(add-to-list 'company-backends 'company-keywords)
+
 
 ;;company-box
 ;;company-quickhelp
@@ -137,10 +110,10 @@
 ;(global-flycheck-mode)
 ;;rubocop flycheck lint
 ;;gem install rubocop ruby-lint pry pry-dock reek
-;(add-hook 'ruby-mode-hook
-;	  '(lambda ()
-;	     (setq flycheck-checker 'ruby-rubocop)
-;	     (flycheck-mode 1)))
+(add-hook 'ruby-mode-hook
+	  '(lambda ()
+	     (setq flycheck-checker 'ruby-rubocop)
+	     (flycheck-mode 1)))
 
 ;; 自動起動
 (setq flycheck-check-syntax-automatically
@@ -186,7 +159,7 @@
 ;(setq highlight-indent-guides-method 'character)
 
 
-;;(straight-use-package 'robe)
+(straight-use-package 'robe)
 ;;(straight-use-package 'helm-robe)
 ;; M-x inf-ruby
 ;; M-x robe-start
@@ -195,11 +168,12 @@
 
 ;;https://lorefnon.me/2014/02/02/configuring-emacs-for-rails.html
 (setq ruby-deep-indent-paren nil)
+(setq ruby-insert-encoding-magic-comment nil)
 
 
-;;(add-hook 'ruby-mode-hook 'robe-mode)
-;;(eval-after-load 'company
-;;  '(push 'company-robe company-backends))
+(add-hook 'ruby-mode-hook 'robe-mode)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
 
 ;; helm https://tuhdo.github.io/helm-intro.html
 (straight-use-package 'helm)
@@ -214,8 +188,6 @@
 
 ;;avy
 
-;;lsp-mode?
-;;https://github.com/emacs-lsp/lsp-mode
 
 
 
@@ -264,8 +236,8 @@
 
 
 ;;https://github.com/TeMPOraL/nyan-mode
-(straight-use-package 'nyan-mode)
-(nyan-mode t)
+;(straight-use-package 'nyan-mode)
+;(nyan-mode t)
 
 
 
