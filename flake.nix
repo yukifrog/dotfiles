@@ -230,8 +230,15 @@
       # Development shell for working on dotfiles
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          # Nix development tools
           nixpkgs-fmt
           nil  # Nix LSP
+
+          # Essential CLI tools for development
+          ripgrep
+          fd
+          bat
+          eza
         ];
 
         shellHook = ''
