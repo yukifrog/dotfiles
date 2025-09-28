@@ -57,6 +57,27 @@
               watchexec     # file watcher and command runner
               sqlite-utils  # SQLite command-line utilities
 
+              # Network and debugging
+              dig           # DNS lookup
+              lsof          # list open files
+              strace        # trace system calls
+              tcpdump       # network packet analyzer
+
+              # Archive and compression
+              zip
+              unzip
+              xz
+
+              # Media processing
+              ffmpeg        # video/audio processing
+              imagemagick   # image manipulation
+
+              # Documentation
+              pandoc        # universal document converter
+
+              # Containerization
+              docker        # container platform
+
               # Development environments
               nodejs
               python3
@@ -71,6 +92,7 @@
               # Testing and validation
               bats          # Bash automated testing system
               yamllint      # YAML linter
+              markdownlint-cli  # Markdown linter
 
               # Additional development tools
               direnv        # automatic environment loading
@@ -176,11 +198,23 @@
                 watch = "watchexec";
                 sql = "sqlite-utils";
 
+                # System debugging
+                ports = "lsof -i";
+                trace = "strace";
+                packets = "tcpdump";
+
+                # Media processing
+                video = "ffmpeg";
+                convert = "magick";
+
+                # Documentation
+                md2pdf = "pandoc -o output.pdf";
+
                 # Development workflow
                 make = "just";           # use just instead of make when available
                 serve = "python3 -m http.server 8000";
                 myip = "curl -s http://checkip.amazonaws.com";
-                ports = "netstat -tuln";
+                netports = "netstat -tuln";
 
                 # Directory navigation
                 ".." = "cd ..";
@@ -220,6 +254,7 @@
                 # Testing
                 test-bash = "bats";
                 lint-yaml = "yamllint";
+                lint-md = "markdownlint";
 
                 # Development tools
                 hooks = "pre-commit";

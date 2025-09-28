@@ -185,6 +185,24 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 - **ollama**: ローカルLLMサーバー（Llama, Mistral等）
 - **aider**: AI ペアプログラミング
 
+### 🌐 ネットワーク・デバッグ
+- **dig**: DNS解決・調査
+- **lsof**: ファイル・ポート監視
+- **strace**: システムコール追跡
+- **tcpdump**: ネットワークパケット解析
+
+### 🎥 メディア・ドキュメント処理
+- **ffmpeg**: 動画・音声処理
+- **imagemagick**: 画像操作・変換
+- **pandoc**: ユニバーサルドキュメント変換
+
+### 📦 圧縮・コンテナ
+- **zip/unzip/xz**: アーカイブ処理
+- **docker**: コンテナプラットフォーム
+
+### 📝 ドキュメント品質
+- **markdownlint**: Markdown検証
+
 ### ⚙️ システムツール
 - **gcc/make/cmake**: C/C++ビルドツールチェーン
 - **vim/nano**: テキストエディタ
