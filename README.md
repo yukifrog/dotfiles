@@ -152,8 +152,19 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 - **fzf**: ファジーファインダー
 - **zoxide**: `cd`の代替（スマートジャンプ）
 - **delta**: Git diff（シンタックスハイライト付き）
-- **bottom**: `htop`の代替
+- **btop**: `htop`の代替（豊富な情報表示）
 - **starship**: 高機能シェルプロンプト
+
+### 🛠️ 開発ツール
+- **tig**: Git TUIクライアント
+- **gitleaks**: Git秘密情報検出
+- **httpie**: ユーザーフレンドリーHTTPクライアント
+- **bandwhich**: プロセス別ネットワーク使用量
+- **aider**: AI ペアプログラミング
+
+### ⚙️ システムツール
+- **gcc/make/cmake**: C/C++ビルドツールチェーン
+- **vim/nano**: テキストエディタ
 
 ### 🎯 特殊機能
 - **Claude Code統合**: 専用Emacs設定

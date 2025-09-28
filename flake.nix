@@ -48,7 +48,7 @@
               wget
               tree
               htop
-              bottom        # htop replacement
+              btop          # htop replacement (better than bottom)
               dust          # du replacement
               procs         # ps replacement
               hyperfine     # benchmarking tool
@@ -66,6 +66,26 @@
               direnv        # automatic environment loading
               just          # command runner
               starship      # shell prompt
+
+              # Build and compilation tools
+              gcc           # C/C++ compiler
+              gnumake       # build tool
+              cmake         # cross-platform build system
+
+              # Git and version control
+              tig           # text-mode interface for git
+              gitleaks      # detect secrets in git repos
+
+              # Network and HTTP tools
+              httpie        # user-friendly HTTP client
+              bandwhich     # network utilization by process
+
+              # Editors and text processing
+              vim           # modal text editor
+              nano          # simple text editor
+
+              # AI and productivity
+              aider         # AI pair programming
             ];
 
             # Git configuration (basic - detailed config in chezmoi)
@@ -118,7 +138,7 @@
                 find = "fd";
                 grep = "rg";
                 ps = "procs";
-                top = "btm";
+                top = "btop";
                 du = "dust";
 
                 # Git shortcuts
@@ -127,6 +147,11 @@
                 gc = "git commit";
                 gp = "git push";
                 gl = "git log --oneline";
+
+                # Additional shortcuts
+                http = "httpie";
+                secrets = "gitleaks detect";
+                network = "bandwhich";
               };
             };
 
