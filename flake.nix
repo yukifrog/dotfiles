@@ -152,6 +152,41 @@
                 http = "httpie";
                 secrets = "gitleaks detect";
                 network = "bandwhich";
+
+                # Development workflow
+                make = "just";           # use just instead of make when available
+                serve = "python3 -m http.server 8000";
+                myip = "curl -s http://checkip.amazonaws.com";
+                ports = "netstat -tuln";
+
+                # Directory navigation
+                ".." = "cd ..";
+                "..." = "cd ../..";
+                "...." = "cd ../../..";
+
+                # File operations
+                cp = "cp -i";           # interactive copy
+                mv = "mv -i";           # interactive move
+                rm = "rm -i";           # interactive remove
+                mkdir = "mkdir -p";     # create parent directories
+
+                # Search and find
+                h = "history | grep";
+                f = "find . -name";
+
+                # System info
+                df = "df -h";           # human readable disk usage
+                free = "free -h";       # human readable memory
+
+                # Emacs shortcuts
+                e = "emacs";
+                en = "emacs -nw";       # terminal emacs
+
+                # Chezmoi shortcuts
+                cm = "chezmoi";
+                cma = "chezmoi apply";
+                cms = "chezmoi status";
+                cmd = "chezmoi diff";
               };
             };
 
