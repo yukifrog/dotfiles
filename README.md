@@ -182,6 +182,8 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 
 ### 🤖 AI・LLM統合
 - **llm**: Simon Willison's LLM CLI
+- **ollama**: ローカルLLMサーバー（Llama, Mistral等）
+- **aider**: AI ペアプログラミング
 
 ### ⚙️ システムツール
 - **gcc/make/cmake**: C/C++ビルドツールチェーン
@@ -203,6 +205,11 @@ nixpkgs-fmt flake.nix
 
 # 統合テスト
 chezmoi status && nix flake check
+
+# AI活用
+chat llama3.1        # ローカルLLM起動
+models              # インストール済みモデル確認
+ai "質問内容"        # Simon Willison's LLM
 ```
 
 ---

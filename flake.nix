@@ -101,6 +101,7 @@
               # AI and productivity
               aider         # AI pair programming
               llm           # Simon Willison's LLM CLI
+              ollama        # local LLM server
 
               # Code analysis and search
               ast-grep      # structural search and replace
@@ -224,6 +225,10 @@
                 hooks = "pre-commit";
                 versions = "mise";
                 ai = "llm";
+
+                # Local AI
+                chat = "ollama run";
+                models = "ollama list";
               };
             };
 
