@@ -170,6 +170,18 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 - **bats**: Bash自動テストシステム
 - **yamllint**: YAMLリンター
 - **ast-grep**: 構造的コード検索・置換
+- **pre-commit**: Git hook管理フレームワーク
+
+### 🌐 HTTP・データ処理
+- **httpx**: 次世代HTTPクライアント
+- **sqlite-utils**: SQLiteコマンドライン操作
+
+### ⚡ ファイル監視・自動化
+- **watchexec**: ファイル変更監視・自動実行
+- **mise**: 開発ツールバージョン管理
+
+### 🤖 AI・LLM統合
+- **llm**: Simon Willison's LLM CLI
 
 ### ⚙️ システムツール
 - **gcc/make/cmake**: C/C++ビルドツールチェーン

@@ -54,6 +54,8 @@
               hyperfine     # benchmarking tool
               jq            # JSON processor
               yq            # YAML processor
+              watchexec     # file watcher and command runner
+              sqlite-utils  # SQLite command-line utilities
 
               # Development environments
               nodejs
@@ -74,6 +76,8 @@
               direnv        # automatic environment loading
               just          # command runner
               starship      # shell prompt
+              pre-commit    # git hooks framework
+              mise          # development tool version manager
 
               # Build and compilation tools
               gcc           # C/C++ compiler
@@ -87,6 +91,7 @@
 
               # Network and HTTP tools
               httpie        # user-friendly HTTP client
+              httpx         # modern HTTP client library
               bandwhich     # network utilization by process
 
               # Editors and text processing
@@ -95,6 +100,7 @@
 
               # AI and productivity
               aider         # AI pair programming
+              llm           # Simon Willison's LLM CLI
 
               # Code analysis and search
               ast-grep      # structural search and replace
@@ -163,8 +169,11 @@
 
                 # Additional shortcuts
                 http = "httpie";
+                httpx = "httpx";
                 secrets = "gitleaks detect";
                 network = "bandwhich";
+                watch = "watchexec";
+                sql = "sqlite-utils";
 
                 # Development workflow
                 make = "just";           # use just instead of make when available
@@ -210,6 +219,11 @@
                 # Testing
                 test-bash = "bats";
                 lint-yaml = "yamllint";
+
+                # Development tools
+                hooks = "pre-commit";
+                versions = "mise";
+                ai = "llm";
               };
             };
 
