@@ -33,18 +33,39 @@
               gh
               tmux
 
+              # Modern CLI replacements
+              bat           # cat replacement with syntax highlighting
+              eza           # ls replacement with colors and git status
+              fd            # find replacement
+              ripgrep       # grep replacement
+              fzf           # fuzzy finder
+              zoxide        # cd replacement with smart jumping
+              delta         # git diff with syntax highlighting
+
               # System utilities
               age
               curl
               wget
               tree
               htop
+              bottom        # htop replacement
+              dust          # du replacement
+              procs         # ps replacement
+              hyperfine     # benchmarking tool
+              jq            # JSON processor
+              yq            # YAML processor
 
               # Development environments
               nodejs
               python3
               rustc
               cargo
+              go
+
+              # Additional development tools
+              direnv        # automatic environment loading
+              just          # command runner
+              starship      # shell prompt
             ];
 
             # Git configuration (basic - detailed config in chezmoi)
@@ -54,10 +75,59 @@
               userEmail = "yukifrog@users.noreply.github.com";
             };
 
+            # Modern CLI tools configuration
+            programs.bat = {
+              enable = true;
+              config = {
+                theme = "zenburn";
+                style = "numbers,changes,header";
+              };
+            };
+
+            programs.fzf = {
+              enable = true;
+              enableBashIntegration = true;
+            };
+
+            programs.zoxide = {
+              enable = true;
+              enableBashIntegration = true;
+            };
+
+            programs.direnv = {
+              enable = true;
+              enableBashIntegration = true;
+              nix-direnv.enable = true;
+            };
+
+            programs.starship = {
+              enable = true;
+              enableBashIntegration = true;
+            };
+
             # Bash configuration (basic - detailed in chezmoi)
             programs.bash = {
               enable = true;
               enableCompletion = true;
+              shellAliases = {
+                # Modern CLI replacements
+                cat = "bat";
+                ls = "eza --icons --git";
+                ll = "eza -l --icons --git";
+                la = "eza -la --icons --git";
+                find = "fd";
+                grep = "rg";
+                ps = "procs";
+                top = "btm";
+                du = "dust";
+
+                # Git shortcuts
+                g = "git";
+                gs = "git status";
+                gc = "git commit";
+                gp = "git push";
+                gl = "git log --oneline";
+              };
             };
 
             # Home Manager can also manage dotfiles, but we let chezmoi handle detailed configs

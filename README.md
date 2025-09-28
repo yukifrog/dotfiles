@@ -144,6 +144,17 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 - **Git統合**: GitHub CLI + Magit
 - **開発シェル**: `nix develop`
 
+### ⚡ 現代的CLIツール
+- **bat**: `cat`の代替（シンタックスハイライト付き）
+- **eza**: `ls`の代替（アイコン・Git状態表示）
+- **fd**: `find`の代替（高速・直感的）
+- **ripgrep**: `grep`の代替（高速・Git対応）
+- **fzf**: ファジーファインダー
+- **zoxide**: `cd`の代替（スマートジャンプ）
+- **delta**: Git diff（シンタックスハイライト付き）
+- **bottom**: `htop`の代替
+- **starship**: 高機能シェルプロンプト
+
 ### 🎯 特殊機能
 - **Claude Code統合**: 専用Emacs設定
 - **テンプレート**: 環境固有設定の変数化
