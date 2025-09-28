@@ -62,6 +62,14 @@
               cargo
               go
 
+              # Python development tools
+              uv            # fast Python package manager
+              ruff          # fast Python linter (replaces flake8)
+
+              # Testing and validation
+              bats          # Bash automated testing system
+              yamllint      # YAML linter
+
               # Additional development tools
               direnv        # automatic environment loading
               just          # command runner
@@ -74,6 +82,7 @@
 
               # Git and version control
               tig           # text-mode interface for git
+              lazygit       # modern git TUI (better than tig)
               gitleaks      # detect secrets in git repos
 
               # Network and HTTP tools
@@ -86,6 +95,9 @@
 
               # AI and productivity
               aider         # AI pair programming
+
+              # Code analysis and search
+              ast-grep      # structural search and replace
             ];
 
             # Git configuration (basic - detailed config in chezmoi)
@@ -147,6 +159,7 @@
                 gc = "git commit";
                 gp = "git push";
                 gl = "git log --oneline";
+                lg = "lazygit";
 
                 # Additional shortcuts
                 http = "httpie";
@@ -187,6 +200,16 @@
                 cma = "chezmoi apply";
                 cms = "chezmoi status";
                 cmd = "chezmoi diff";
+
+                # Python development
+                uv-install = "uv pip install";
+                uv-sync = "uv pip sync";
+                lint-python = "ruff check";
+                format-python = "ruff format";
+
+                # Testing
+                test-bash = "bats";
+                lint-yaml = "yamllint";
               };
             };
 

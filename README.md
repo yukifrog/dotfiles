@@ -156,11 +156,20 @@ chezmoi add --encrypt ~/.ssh/config  # 暗号化ファイル
 - **starship**: 高機能シェルプロンプト
 
 ### 🛠️ 開発ツール
-- **tig**: Git TUIクライアント
+- **lazygit**: モダンGit TUI（tigより高機能）
 - **gitleaks**: Git秘密情報検出
 - **httpie**: ユーザーフレンドリーHTTPクライアント
 - **bandwhich**: プロセス別ネットワーク使用量
 - **aider**: AI ペアプログラミング
+
+### 🐍 Python開発
+- **uv**: 超高速Pythonパッケージマネージャー
+- **ruff**: 高速Pythonリンター・フォーマッター
+
+### 🧪 テスト・検証
+- **bats**: Bash自動テストシステム
+- **yamllint**: YAMLリンター
+- **ast-grep**: 構造的コード検索・置換
 
 ### ⚙️ システムツール
 - **gcc/make/cmake**: C/C++ビルドツールチェーン
