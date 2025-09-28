@@ -5,7 +5,7 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [user]
-	name = yukifrog
-	email = yukifrog@users.noreply.github.com
+	name = {{ .name | default "yukifrog" }}
+	email = {{ .email | default "yukifrog@users.noreply.github.com" }}
 [credential]
 	helper = store
