@@ -52,7 +52,8 @@
               tree
               htop
               btop          # htop replacement (better than bottom)
-              dust          # du replacement
+              dust          # du replacement (quick overview)
+              ncdu          # disk usage analyzer (interactive)
               procs         # ps replacement
               hyperfine     # benchmarking tool
               jq            # JSON processor
@@ -65,6 +66,7 @@
               lsof          # list open files
               strace        # trace system calls
               tcpdump       # network packet analyzer
+              mosh          # mobile shell (SSH for unstable networks)
 
               # Archive and compression
               zip
