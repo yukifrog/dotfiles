@@ -41,6 +41,9 @@
               fzf           # fuzzy finder
               zoxide        # cd replacement with smart jumping
               delta         # git diff with syntax highlighting
+              sd            # sed replacement
+              choose        # cut/awk replacement
+              xh            # httpie/curl replacement (faster)
 
               # System utilities
               age
