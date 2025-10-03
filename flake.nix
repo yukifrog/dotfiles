@@ -121,9 +121,9 @@
               nano          # simple text editor
 
               # AI and productivity
-              aider         # AI pair programming
-              llm           # Simon Willison's LLM CLI
-              ollama        # local LLM server
+              # aider         # AI pair programming (not in nixpkgs)
+              # llm           # Simon Willison's LLM CLI (not in nixpkgs)
+              # ollama        # local LLM server (not in nixpkgs)
 
               # Code analysis and search
               ast-grep      # structural search and replace
