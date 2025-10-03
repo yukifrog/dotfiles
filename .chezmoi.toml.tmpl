@@ -1,0 +1,16 @@
+{{- $name := "yukifrog" -}}
+{{- $email := "yukifrog@users.noreply.github.com" -}}
+{{- $ageRecipient := "age1g2f49e8s8qm5ylr6pm7nm58r7efxtpzj9l2l78gqzh0j8nh39dwsvldvys" -}}
+
+[data]
+name = {{ $name | quote }}
+email = {{ $email | quote }}
+
+encryption = "age"
+[age]
+identity = "~/.config/age/key.txt"
+recipient = {{ $ageRecipient | quote }}
+
+[git]
+autoCommit = true
+autoPush = false
