@@ -175,6 +175,9 @@
             programs.bash = {
               enable = true;
               enableCompletion = true;
+              sessionVariables = {
+                PATH = "$HOME/.npm-global/bin:$PATH";
+              };
               shellAliases = {
                 # Modern CLI replacements
                 cat = "bat";
