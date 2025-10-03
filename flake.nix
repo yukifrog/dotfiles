@@ -24,6 +24,11 @@
             home.homeDirectory = "/home/yuuki";
             home.stateVersion = "23.11";
 
+            # Session variables
+            home.sessionVariables = {
+              PATH = "$HOME/.npm-global/bin:$PATH";
+            };
+
             # Package management
             home.packages = with pkgs; [
               # Development tools
@@ -175,9 +180,6 @@
             programs.bash = {
               enable = true;
               enableCompletion = true;
-              bashrcExtra = ''
-                export PATH="$HOME/.npm-global/bin:$PATH"
-              '';
               shellAliases = {
                 # Modern CLI replacements
                 cat = "bat";
