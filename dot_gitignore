@@ -1,0 +1,67 @@
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# Emacs package management
+elpa/
+eln-cache/
+.config/emacs/elpa/
+.config/emacs/eln-cache/
+straight/
+.config/emacs/straight/
+auto-save/
+backups/
+.config/emacs/auto-save/
+.config/emacs/backups/
+
+# Projectile
+projectile-bookmarks.eld
+.config/emacs/projectile-bookmarks.eld
+
+# Recent files
+recentf
+.config/emacs/recentf
+
+# Transient
+transient/
+.config/emacs/transient/
+
+# LSP and language servers
+.config/emacs/.lsp-session-*
+.config/emacs/lsp-session-*
+
+# Completion and search history
+.config/emacs/smex-items
+.config/emacs/ido.last
+.config/emacs/network-security.data
+
+# Session and cache files
+.config/emacs/*.cache
+.config/emacs/.session*
+.config/emacs/session.*
+
+# Custom configuration (personal settings)
+# custom.el is tracked to preserve our settings
+
+# Temporary files
+.DS_Store
+*.log
+
+# tmux
+.tmux/plugins/
+.tmux/resurrect/
+
+# Backup files
+*.bak
+*.backup
+*~
