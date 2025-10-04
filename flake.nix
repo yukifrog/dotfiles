@@ -180,6 +180,12 @@
             programs.bash = {
               enable = true;
               enableCompletion = true;
+              initExtra = ''
+                # Source home-manager session variables
+                if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+                  . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+                fi
+              '';
               shellAliases = {
                 # Modern CLI replacements
                 cat = "bat";
