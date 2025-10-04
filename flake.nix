@@ -145,6 +145,9 @@
               enable = true;
               userName = "yukifrog";
               userEmail = "yukifrog@users.noreply.github.com";
+              extraConfig = {
+                credential.helper = ["" "!gh auth git-credential"];
+              };
             };
 
             # Modern CLI tools configuration
