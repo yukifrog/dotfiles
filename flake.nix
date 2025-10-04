@@ -20,8 +20,8 @@
         inherit pkgs;
         modules = [
           {
-            home.username = "yuuki";
-            home.homeDirectory = "/home/yuuki";
+            home.username = "yukifrog";
+            home.homeDirectory = "/home/yukifrog";
             home.stateVersion = "23.11";
 
             # Session variables
