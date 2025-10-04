@@ -32,11 +32,12 @@
             # Package management
             home.packages = with pkgs; [
               # Development tools
-              emacs
+              emacs-nox
               chezmoi
               git
               gh
               tmux
+              zsh
 
               # Modern CLI replacements
               bat           # cat replacement with syntax highlighting
@@ -157,29 +158,31 @@
 
             programs.fzf = {
               enable = true;
-              enableBashIntegration = true;
+              enableZshIntegration = true;
             };
 
             programs.zoxide = {
               enable = true;
-              enableBashIntegration = true;
+              enableZshIntegration = true;
             };
 
             programs.direnv = {
               enable = true;
-              enableBashIntegration = true;
+              enableZshIntegration = true;
               nix-direnv.enable = true;
             };
 
             programs.starship = {
               enable = true;
-              enableBashIntegration = true;
+              enableZshIntegration = true;
             };
 
-            # Bash configuration (basic - detailed in chezmoi)
-            programs.bash = {
+            # Zsh configuration (basic - detailed in chezmoi)
+            programs.zsh = {
               enable = true;
               enableCompletion = true;
+              autosuggestion.enable = true;
+              syntaxHighlighting.enable = true;
               initExtra = ''
                 # Source home-manager session variables
                 if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then

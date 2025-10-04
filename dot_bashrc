@@ -111,14 +111,6 @@ fi
 # Development environment setup
 export PATH="$HOME/.local/bin:~/.npm-global/bin:$PATH"
 
-# ASDF version manager
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-
-# NVM (Node Version Manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 # NOTE: Tool initialization and aliases now managed by Nix home-manager
 # eval "$(zoxide init bash)"     # → Nix programs.zoxide.enableBashIntegration
 # eval "$(starship init bash)"   # → Nix programs.starship.enableBashIntegration
@@ -126,11 +118,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Custom aliases not managed by Nix
 alias gemini="npx -y https://github.com/google-gemini/gemini-cli"
-
-# Mise development tool version manager
-eval "$(/home/yuuki/.local/bin/mise activate bash)"
-
-
 
 # Claude Code 通知設定 (カスタマイズ用)
 
@@ -145,6 +132,4 @@ if [ -f "$HOME/.config/claude-code/load-config.sh" ]; then
     source "$HOME/.config/claude-code/load-config.sh" && load_claude_config
 fi
 
-# Added by `rbenv init` on Wed Sep  3 21:36:33 JST 2025
-eval "$(~/.rbenv/bin/rbenv init - --no-rehash bash)"
 export XDG_CONFIG_HOME="$HOME/.config"
